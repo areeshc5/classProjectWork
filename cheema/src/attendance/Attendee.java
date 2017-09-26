@@ -1,6 +1,6 @@
 package attendance;
 
-public class Attendee {
+public interface Attendee {
 
 	/**In addition to the following methods, please create a class called 
 	 * 'Student' that implements the Attendee interface and include a 
