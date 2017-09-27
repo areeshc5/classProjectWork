@@ -42,7 +42,7 @@ public class Student implements Attendee{
 		 else {
 			 return false;
 		 
-		 
+		 }
 	 }
 	 
 	 public boolean matches(String last) {
@@ -56,8 +56,31 @@ public class Student implements Attendee{
 	 
 	 public String getReportString() {
 		 
-		 String t 
-				 
-		return 
+		 String rs = lastName;
+		 
+		 rs = space(rs, 20);
+		 
+		 rs += firstName;
+		
+		 rs = space(rs, 40);
+			if (present == true) {
+				rs += "Present";
+			}
+				
+			else {
+				rs += "Absent";
+			}
+		 
+		return rs;
+	 }
+
+	 public String space(String s, int length) {
+		 
+		 while(s.length() < length) {
+			 s += " ";
+		 }
+		 
+		 return s;
 	 }
 }
+	 
