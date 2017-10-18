@@ -9,12 +9,64 @@ public class ArraysMain {
 	
 	public ArraysMain() {
 			//warmUpMethods();
-			tuesdayMethods();
+			//tuesdayMethods();
+			wednesdayMethods();
 			//populate1toN(testArray);
 			//shuffle(testArray);
 			//populate(testArray);
 			//countOccurances(testArray,2,12);
 			//System.out.println(Arrays.toString(testArray));
+	}
+	private void wednesdayMethods() {
+		int[] diceRolls = new int[10000];
+		populate(diceRolls);
+		int[] data = longestConsecutiveSeqAndIndex(diceRolls);
+		int max = 1;
+		int longest = data[0];
+		System.out.println("The longest sequence is " + longest+ " rolls "+
+				"It happened on roll #"+data[1]+"the sequence was:"+ 
+				Arrays.toString(subArray(diceRolls, data[1], data[0]))+".");
+		while(longest!=11) {
+			populate(diceRolls);
+			data = longestConsecutiveSeqAndIndex(diceRolls);
+			longest = data[0];
+			if( longest > max) {
+				max = longest;
+				System.out.println("The longest sequence is " + longest+ " rolls "+
+						"It happened on roll #"+data[1]+"the sequence was:"+ 
+						Arrays.toString(subArray(diceRolls, data[1], data[0]))+".");
+			}
+		}
+		
+	}
+	/**
+	 * BIG IDEA
+	 * usually a method returns ONE piece of data(i.e. 'int', 'boolean', etc)
+	 * if we ever want more than one piece of data, one way of doing that is by 
+	 * using an array as you see here, a method that returns the lcs of the sequence
+	 * and its START position(both ints)
+	 * @param arr
+	 * @return
+	 */
+	private int[] longestConsecutiveSeqAndIndex(int[] arr) {
+		//use an int[] to store data
+		int[] data = new int[2];// element at 0 is length, at 1 is position
+		data[0] =1;
+		int currentCount = 1;
+		
+		for(int i =0; i<arr.length; i++) {
+			while(i+currentCount < arr.length && isConsecutive(arr, i , i+currentCount)) {
+				currentCount++;
+			}
+			if(currentCount > data[0]) {
+				data[0] = currentCount;
+				//also store the index where this sequence started
+			}
+			i = i+currentCount-1; //saves time
+			currentCount=1;
+		}
+		return data;
+		
 	}
 	private void tuesdayMethods() {
 		int[] orderTest= {1,2,3,4,5,1,6,7,8,9,10,11};
@@ -225,4 +277,6 @@ public class ArraysMain {
 		}
 		return sum;
 	}
+	
+	
 }
