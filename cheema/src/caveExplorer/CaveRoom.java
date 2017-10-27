@@ -2,7 +2,7 @@ package caveExplorer;
 
 public class CaveRoom {
 
-	private String decription;
+	private String description;
 	private String directions;//tells you which doors can be used
 	private String contents;//a symbol showing you what is in the room
 	//(x when you are in the room)
@@ -18,7 +18,7 @@ public class CaveRoom {
 	public static final int WEST =3;
 	
 	public CaveRoom(String description) {
-		this.decription = description;
+		this.description = description;
 		setDefaultContents("");
 		contents = defaultContents;
 		//NOTE; arrays are instantiated with 'null' values
@@ -35,19 +35,8 @@ public class CaveRoom {
 	 */
 	public void setDirections() {
 		directions = "";
-		//hint: to check if a door is null, use:
-		//doors[0] == null OR use doors[0] != null
-		for(int i=0; i <doors.length; i++) {
-		if(doors[i]==null) {
-			directions = "There is no way out, you are trapped";
-		}
-		else {
-			directions +="There is a "+doors[i].getDescription()+ " to the "+
-					toDirection(i)+". "+doors[i].getDetails();
-		}
-		
-		}
-	}
+		boolean doorFound= false;
+		for(int)
 	//converts an int to a direction
 	public static String toDirection(int dir) {
 		String direction[] = {"the North", "the East", "the West","the South"};
@@ -105,7 +94,23 @@ public class CaveRoom {
 	 * this is where you edit your caves
 	 */
 	public static void setUpCaves() {
+		//1. determine size of  caves
+		CaveExplorer.caves = new CaveRoom[5][5];
+		CaveRoom[][] c = CaveExplorer.caves;// create a shortcut for accessing CaveExplorer.caves
+		//2. populate with default caves
+		for(int row =0; row < c.length; row++) {
+			for(int col =0; col< c[row].length; col++) {
+				c[row][col] = new CaveRoom("This cave has coordinates " +row+ "," +col);
+			}
+		}
+		//3. replace some default rooms with custom rooms(SAVE FOR LATER)
+		//4. set starting room
+		CaveExplorer.currentRoom= c[0][1];
+		CaveExplorer.currentRoom.enter();
 		
+		//5. set up doors
+		c[0][1].setConnection(SOUTH, c[1][1], new Door());
+		c[1][1].setConnection(EAST, c[1][2], new Door());
 	}
 	public void goToRoom(int direction) {
 		//make sure there is a room to go to
@@ -138,12 +143,12 @@ public class CaveRoom {
 		this.defaultContents = defaultContents;
 	}
 
-	public String getDecription() {
-		return decription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDecription(String decription) {
-		this.decription = decription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getDirections() {
