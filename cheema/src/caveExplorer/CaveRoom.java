@@ -104,15 +104,19 @@ public class CaveRoom {
 	 */
 	public static void setUpCaves() {
 		//1. determine size of  caves
-		CaveExplorer.caves = new CaveRoom[5][5];
+		CaveExplorer.caves = new NPCRoom[5][5];
 		CaveRoom[][] c = CaveExplorer.caves;// create a shortcut for accessing CaveExplorer.caves
 		//2. populate with default caves
 		for(int row =0; row < c.length; row++) {
 			for(int col =0; col< c[row].length; col++) {
-				c[row][col] = new CaveRoom("This cave has coordinates " +row+ "," +col);
+				c[row][col] = new NPCRoom("This cave has coordinates " +row+ "," +col);
 			}
 		}
 		//3. replace some default rooms with custom rooms(SAVE FOR LATER)
+		NPC testNPC = new NPC();
+		testNPC.setPosition(1,2);
+		CaveExplorer.npcs = new NPC[1];
+		CaveExplorer.npcs[0] =  testNPC;
 		//4. set starting room
 		CaveExplorer.currentRoom= c[0][1];
 		CaveExplorer.currentRoom.enter();
