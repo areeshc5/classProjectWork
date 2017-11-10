@@ -13,7 +13,10 @@ public class Trait {
 			Trait shortTailed = new Trait(6);
 			System.out.println(longTailed+" and "+shortTailed+ " are the same trait: "+longTailed.equals(shortTailed));
 	}
-	
+	/**
+	 * why are there two constructors for trait?
+	 * could be specific or random
+	 */
 	public Trait() {
 		index = (int)(Math.random()*traits.length);
 		description = traits[index];
