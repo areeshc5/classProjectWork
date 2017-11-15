@@ -16,7 +16,7 @@ public class Enviroment {
 		this.plants = plants;
 		this.growthRate = plants/2;
 	}
-	private void growPlants() {
+	public void growPlants() {
 		plants += growthRate;
 		System.out.println("\nThere are plants" +plants+ " plants");
 		

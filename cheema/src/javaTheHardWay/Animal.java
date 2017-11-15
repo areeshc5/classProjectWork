@@ -64,7 +64,7 @@ public class Animal {
 			System.out.println(this + " is sleeping.");
 			mated = true;
 		}
-		public boolean haasMated() {
+		public boolean hasMated() {
 			return mated;
 		}
 		public void setMated(boolean b) {
