@@ -1,7 +1,7 @@
 package javaTheHardWay;
 
 public class RoamingAnimal extends Animal {
-	
+
 	protected Habitat habitat;
 	private boolean sex;
 	
@@ -64,5 +64,6 @@ public class RoamingAnimal extends Animal {
 	public boolean canEat() {
 		return habitat.eatPlants();
 	}
+
 
 }
