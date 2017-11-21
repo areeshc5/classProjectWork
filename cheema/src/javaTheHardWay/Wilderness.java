@@ -20,7 +20,7 @@ public class Wilderness extends Habitat{
 		return this.description +"\n"+ animalReport();
 	}
 	
-	private void stimulate(int rounds) {
+	public void stimulate(int rounds) {
 		for(int i = 0; i < rounds; i++) {
 			for(Animal a: getAnimals()) {
 				if(a instanceof ReproductionAnimal)((ReproductionAnimal)a).reset();
