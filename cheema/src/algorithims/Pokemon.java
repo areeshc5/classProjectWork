@@ -45,7 +45,13 @@ public class Pokemon {
 				 target.setHP(hp-100);
 			 }
 		 });
-		 
+		 squirtle.levelUp(new Effect() {
+			
+			public void happen() {
+				squirtle.setHP(100);
+				
+			}
+		});
 		 }
 	
 	 private static void printScore(Pokemon p1, Pokemon p2) {
@@ -61,11 +67,11 @@ public class Pokemon {
 		 }
 		 }
 
-
 	public void levelUp(Effect e) {
 		level++;
 		e.happen();
 	}
+	
 	public void iChooseYou() {
 		System.out.print(name+", "+name+"!");
 	}
