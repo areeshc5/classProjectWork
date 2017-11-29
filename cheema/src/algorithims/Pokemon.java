@@ -48,6 +48,8 @@ public class Pokemon {
 		 squirtle.levelUp(new Effect() {
 			
 			public void happen() {
+				//code goes here
+				//final if you want to modify a reference outside this body
 				squirtle.setHP(100);
 				
 			}
