@@ -1,17 +1,6 @@
 package symposium;
-
-
-import symposium.Frontend;
-import caveExplorer.CaveExplorer;
-import java.util.Arrays;
-import java.util.Scanner;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
 import java.util.*;
 
 enum Piece
